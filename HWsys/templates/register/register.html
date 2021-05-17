@@ -1,0 +1,35 @@
+{% extends ' ../base.html '%}
+
+<!--{% block title%}-->
+<!--Register-->
+<!--{% endblock %}-->
+
+<!--{% block content%}-->
+<!--<form method="POST" action="">-->
+<!--	{% csrf_token %}-->
+<!--	<p>Username{{form.username}}<br></p>-->
+<!--	<p>Password{{form.password1}}<br></p>-->
+<!--	<p>Verify password{{form.password2}}<br></p>-->
+<!--	<input class="btn-success" type="submit" value="Register Account">-->
+<!--	{{form.errors}}-->
+<!--	<p>Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a></p>-->
+<!--{% endblock %}-->
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-body">
+          <h2>Sign Up</h2>
+          <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Sign up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

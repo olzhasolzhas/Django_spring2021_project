@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  {% block content_header %}
+    <h2>Books</h2>
+    <p>
+      <a href="{% url 'upload_hw' %}" class="btn btn-primary">Upload hw</a>
+    </p>
+  {% endblock %}
+
+  <table class="table mb-0">
+    <thead>
+      <tr>
+        <th>Teacher</th>
+        <th>Discipline</th>
+        <th>Date published</th>
+        <th>Deadline</th>
+        <th>File</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for hw in hws %}
+        <tr>
+          <td>{{ hw.teacher }}</td>
+          <td>{{ hw.lesson }}</td>
+          <td>{{ hw.date_published }}</td>
+          <td>{{ hw.deadline }}</td>
+          <th><a href = "homeworks/ShikamaruNaruto_28129.png" download="hw"> Download </a> </th>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
